@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Clipboard</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <style media="screen">
+
+      body {
+        background-color: rgba(245, 245, 245, 1);
+      }
+
+      .custom-container {
+
+        position: absolute;
+
+        left: 50%;
+        transform: translate(-50%, 0%);
+
+      }
+
+      .item {
+
+        position: relative;
+
+        background-color: white;
+
+        min-height: 70px;
+
+        border-radius: 15px;
+        text-align: center;
+
+        transition: all 0.3s;
+
+      }
+
+      .submit-button {
+
+        position: relative;
+
+        background-color: dodgerblue;
+
+        border-radius: 15px;
+
+        height: 70px;
+        width: 100%;
+
+        color: #fff;
+
+        font-size: 20px;
+
+        border: none;
+
+
+      }
+
+      .placeholder {
+        height: 15px;
+      }
+
+      .focused {
+        border: 5px dodgerblue solid;
+      }
+
+
+      .code-textfield {
+
+        position: absolute;
+
+        top: 00px;
+        left: 0px;
+        width: 100%;
+
+        height: 100%;
+        line-height: 60px;
+
+        text-align: center;
+        border-radius: 15px;
+
+        font-size: 21px;
+
+        border: none;
+
+      }
+
+
+      .textarea {
+
+        margin-top: 10px;
+        border: none;
+        width: calc(100% - 20px);
+
+        min-height: 600px;
+        font-size: 20px;
+
+      }
+
+    </style>
+
+  </head>
+  <body>
+
+    <div class="container custom-container">
+
+      <div class="row">
+
+        <div class="col-md-6 col-sm-12 col-xs-12">
+
+          <br>
+          <br>
+
+          <div class="col-md-12">
+            <h3 style="font-weight: bold;">Download clip</h3>
+          </div>
+
+          <form action="" method="get">
+
+            <div class="col-md-12">
+              <div id="item-0" class="item">
+                <label>
+                  <input id="clip-code-input" name="id" class="code-textfield" placeholder="Enter clip-code">
+                </label>
+              </div>
+            </div>
+
+            <div class="placeholder"></div>
+
+            <div class="col-md-12">
+              <input id="item-0" type="submit" class="submit-button" value="Open">
+            </div>
+
+          </form>
+
+        </div>
+
+        <div class="col-md-6 col-sm-12 col-xs-12">
+
+          <br>
+          <br>
+
+          <div class="col-md-12">
+            <h3 style="font-weight: bold;">Upload</h3>
+          </div>
+
+
+          <form action=""  enctype="multipart/form-data" method="post">
+
+            <div class="col-md-12">
+              <div id="item-1" class="item">
+                <textarea name="text" class="textarea" placeholder="Enter text here"></textarea>
+              </div>
+            </div>
+
+            <div class="placeholder"></div>
+
+            <div class="col-md-12">
+              <div id="item-2" class="item" style="height: auto;">
+                <input type="file" name="file" class="code-textfield" placeholder="Drop data">
+              </div>
+            </div>
+
+            <div class="placeholder"></div>
+
+            <div class="col-md-12">
+              <button id="item-0" class="submit-button">Save</button>
+            </div>
+
+          </form>
+
+          <br>
+          <br>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <script type="text/javascript">
+
+        window.onload = viewDidLoad;
+
+        function viewDidLoad() {
+
+            document.getElementById("clip-code-input").focus();
+
+            for (let i = 0; i < 3; i++) {
+                const item = document.getElementById(`item-${i}`);
+                item.index = i;
+                item.onclick = itemClicked;
+            }
+
+        }
+
+
+        function itemClicked() {
+            const index = this.index;
+
+            console.log(index);
+
+            for (var i = 0; i < 3; i++) {
+                document.getElementById(`item-${i}`).classList.remove("focused");
+            }
+            document.getElementById(`item-${index}`).classList.add("focused");
+        }
+
+        function itemClickedAt(index) {
+
+            for (var i = 0; i < 3; i++) {
+                document.getElementById(`item-${i}`).classList.remove("focused");
+            }
+            document.getElementById(`item-${index}`).classList.add("focused");
+
+        }
+
+    </script>
+
+  </body>
+</html>
