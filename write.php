@@ -9,7 +9,7 @@ $gen = new IdGenerator(Config::$DIR);
 
 $id = $gen->create();
 
-$file = Config::$DIR . "/" . $gen->create();
+$file = Config::$DIR . "/" . $id;
 if (isset($_POST["text"]) && strlen($_POST["text"]) > 0) {
     file_put_contents($file, $_POST["text"]);
 } else {
