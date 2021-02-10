@@ -13,7 +13,17 @@
 
       body {
         background-color: rgba(245, 245, 245, 1);
+        outline: none; !important;
       }
+
+      textarea:focus, input:focus{
+        outline: none;
+      }
+
+      *:focus {
+        outline: none;
+      }
+
 
       .custom-container {
 
@@ -148,7 +158,7 @@
           </div>
 
 
-          <form action=""  enctype="multipart/form-data" method="post">
+          <form action="./"  enctype="multipart/form-data" method="post">
 
             <div class="col-md-12">
               <div id="item-1" class="item">
