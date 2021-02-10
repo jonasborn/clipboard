@@ -1,10 +1,7 @@
 <?php
 
-$dir = __DIR__ . "/pastes";
-
 require_once __DIR__ . "/IdGenerator.php";
-require_once __DIR__ . "/PasteFile.php";
-
+$dir = __DIR__ . "/pastes";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require_once "write.php";
@@ -37,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </form>
 <br><br>
 
-<form action=""  enctype="multipart/form-data" method="post">
+<form action="" enctype="multipart/form-data" method="post">
     <label>
         Text
         <br>
