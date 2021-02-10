@@ -26,6 +26,7 @@ if ($type == "text/plain") {
 
 if ($type == "text/x-uri") {
     header("Location: $content");
+    exit();
 }
 
 header("Content-Type: $type");
